@@ -58,7 +58,9 @@ function Header() {
 								<FiHeart className="margin-right" />
 							</div>
 							<div className="icons">
+								<Link to='/profile' >
 								<img src="https://png.pngtree.com/png-vector/20211218/ourmid/pngtree-photography-logo-for-photographer-camera-png-image-png-image_4062788.png" alt="" />
+								</Link>
 							</div>
 							<button className="logout-btn" onClick={logoutHandler}>Log out</button>
 						</div>

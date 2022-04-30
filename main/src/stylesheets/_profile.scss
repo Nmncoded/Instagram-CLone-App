@@ -8,7 +8,7 @@
 }
 
 .profile {
-    height: 40vh;
+    margin: 56px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,6 +75,23 @@
         font-size: 19px;
         &:hover {
             text-decoration: underline;
+        }
+    }
+}
+
+.photo-grid {
+    border-top: 1px solid rgba(black,0.1);
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .feed {
+        margin: 30px;
+        height: 256px;
+        width: 28%;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
         }
     }
 }

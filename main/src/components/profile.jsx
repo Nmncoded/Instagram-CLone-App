@@ -1,6 +1,8 @@
 import { IoIosSettings } from 'react-icons/io';
+import { connect } from 'react-redux';
 
 function Profile(props){
+    let {feeds} = props;
     return (
         <section className="container margin-tb" >
             <div className="profile" >
@@ -25,8 +27,22 @@ function Profile(props){
                     </div>
                 </div>
             </div>
+            <ul className='photo-grid' >
+                {
+                    !feeds ? "" :
+                    feeds.map((feed,index) => {
+                        return (
+                            <li key={index} className='feed' >
+                                <img src={feed} alt={index} />
+                            </li>
+                        )
+                    })  
+                }
+            </ul>
         </section>
     )
 }
 
-export default Profile;
+const mapsStateToProps = (state) => ({...state})
+
+export default connect(mapsStateToProps)(Profile);
