@@ -29,11 +29,11 @@ function Profile(props){
             </div>
             <ul className='photo-grid' >
                 {
-                    !feeds ? "" :
-                    feeds.map((feed,index) => {
+                    !userInfo.images ? "" :
+                    userInfo.images.map((feed,index) => {
                         return (
                             <li key={index} className='feed' >
-                                <img src={feed} alt={index} />
+                                <img src={feed.url} alt={index} />
                             </li>
                         )
                     })  
