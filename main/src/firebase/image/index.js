@@ -13,6 +13,7 @@ export const uploadImage = async (file, description = "", uid) => {
     });
     const url = await getDownloadURL(fileInfo.ref)
     await addUpdateUserInfoArray("images", {url, description}, uid)
+    return url;
   } catch (error) {
     console.log(error)
     return {error: error.message}

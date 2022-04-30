@@ -14,7 +14,9 @@ function MainUi(props){
     const {feeds, dispatch,userInfo} = props;
 
     useEffect(() => {
-        getFeed().then((feeds) => dispatch(updateFeeds(feeds.data)));
+        if(userInfo){
+            getFeed().then((feeds) => dispatch(updateFeeds(feeds.data)));
+        }
     }, [userInfo]);
     console.log(feeds);
     if(!feeds) {
@@ -26,7 +28,7 @@ function MainUi(props){
             <div className="main-ui" >
             <ul className="ui" >
                 {
-                    feeds.map((feed,index) => {
+                    feeds.reverse().map((feed,index) => {
                     
                         return (
                 <li key={index} className="li" >
@@ -72,9 +74,9 @@ function MainUi(props){
                     })
                 }
             </ul>
-            <section className='dummy-work' >
-            <DummyWork />
-            </section>
+                <section className='dummy-work' >
+                <DummyWork />
+                </section>
             </div>
         </section>
     )

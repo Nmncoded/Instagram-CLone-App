@@ -19,8 +19,8 @@ function Header() {
 	const dispatch = useDispatch();
 
 	const logoutHandler = () => {
-		logout();
 		dispatch(logoutUser());
+		logout();
 		history.push("/");
 	}
 
@@ -47,7 +47,7 @@ function Header() {
 							<div>
 								<RiMessengerLine className="margin-right" />
 							</div>
-							<div className="relative">
+							<div className="relative" onMouseLeave={() => setDropzone(false)} >
 								<BiMessageSquareAdd className="margin-right" onClick={() => setDropzone(true)} />
                                 {dropzone && <Dropzone />}
 							</div>

@@ -2,12 +2,17 @@ import React from 'react';
 import {useDropzone} from 'react-dropzone';
 import {uploadImage} from "../firebase/image";
 import { connect } from "react-redux";
+import { updateUserInfo } from '../redux/action';
 
-function Dropzone({userInfo}) {
+function Dropzone({userInfo,dispatch}) {
   const { getRootProps, getInputProps} = useDropzone({
     accept: 'image/*',
     onDrop: (files) => {
       uploadImage(files,"This is description", userInfo.uid)
+      .then(url => {
+        let userImages = userInfo.images ? userInfo.images.concat({url}) : [{url}]
+        dispatch(updateUserInfo({...userInfo,images : userImages}))
+      })
     }
   });
 

@@ -30,7 +30,7 @@ function Profile(props){
             <ul className='photo-grid' >
                 {
                     !userInfo.images ? "" :
-                    userInfo.images.map((feed,index) => {
+                    userInfo.images.reverse().map((feed,index) => {
                         return (
                             <li key={index} className='feed' >
                                 <img src={feed.url} alt={index} />
