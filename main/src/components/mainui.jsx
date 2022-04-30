@@ -33,10 +33,10 @@ function MainUi(props){
                     <header className="header-li flex-between-center" >
                         <div className='info flex-center-center' >
                             <div className='flex-center-center' >
-                                <img src={feed} alt="" />
+                                <img src='https://png.pngtree.com/png-vector/20211218/ourmid/pngtree-photography-logo-for-photographer-camera-png-image-png-image_4062788.png' alt="" />
                             </div>
                             <p className='flex-column-center-center' >
-                                <span>thetrillionairelife</span>
+                                <span>{userInfo.name}</span>
                                 <span className='city' >London, United Kingdom</span>
                             </p>
                         </div>
@@ -63,7 +63,7 @@ function MainUi(props){
                         20,047 likes
                     </div>
                     <div className='name-description' >
-                        <span  className='first' >theTrillionaireLife</span>
+                        <span  className='first' >{userInfo.name}</span>
                         <span className='second' >The only way to travel 🛩 #TheTrillionaireLife</span>
                     </div>
                 </li>

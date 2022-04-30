@@ -2,7 +2,7 @@ import { IoIosSettings } from 'react-icons/io';
 import { connect } from 'react-redux';
 
 function Profile(props){
-    let {feeds} = props;
+    let {feeds,userInfo} = props;
     return (
         <section className="container margin-tb" >
             <div className="profile" >
@@ -11,7 +11,7 @@ function Profile(props){
                 </div>
                 <div className="profile-info" >
                     <div className="name" >
-                        <span className='p-name' >nmn_aggarwal</span>
+                        <span className='p-name' >{userInfo.username}</span>
                         <button className='edit-btn' >Edit Profile</button>
                         <span className='settings-icon' ><IoIosSettings /></span>
                     </div>

@@ -8,6 +8,8 @@
 }
 
 .main-ui {
+    position: relative;
+    margin-top: 24px + 62;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -122,5 +124,9 @@
 }
 
 .dummy-work {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
     width: 36%;
 }
