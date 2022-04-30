@@ -8,13 +8,18 @@ import {getFeed} from "../firebase/image"
 import {useEffect} from 'react'
 import {connect} from "react-redux";
 import { updateFeeds } from '../redux/action';
+import Loader from './loader';
 
 function MainUi(props){
-    const {feeds, dispatch} = props;
+    const {feeds, dispatch,userInfo} = props;
 
     useEffect(() => {
         getFeed().then((feeds) => dispatch(updateFeeds(feeds.data)));
-    }, []);
+    }, [userInfo]);
+    console.log(feeds);
+    if(!feeds) {
+        return <Loader />
+    }
 
     return (
         <section className="container margin-tb" >
@@ -22,8 +27,9 @@ function MainUi(props){
             <ul className="ui" >
                 {
                     feeds.map((feed,index) => {
+                    
                         return (
-                <li className="li" >
+                <li key={index} className="li" >
                     <header className="header-li flex-between-center" >
                         <div className='info flex-center-center' >
                             <div className='flex-center-center' >
