@@ -1,4 +1,4 @@
-import {USER_INFO, LOGOUT, GLOBAL_FEED} from "./actionTypes"
+import {USER_INFO, LOGOUT, GLOBAL_FEED, UPDATE_LIKES} from "./actionTypes"
 
 const initialState = {
   userInfo: null,
@@ -23,6 +23,12 @@ const reducer = (state = initialState, action) => {
       localStorage.clear();
       return {
         ...initialState
+      }
+    }
+    case UPDATE_LIKES : {
+      return {
+        ...state,
+        feeds : action.payload,
       }
     }
     default: {

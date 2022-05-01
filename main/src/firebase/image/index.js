@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { arrayRemove, arrayUnion, collection, doc, getDoc, getDocs, query, setDoc, updateDoc, where } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, list, getDownloadURL } from "firebase/storage";
 import app from "../app"
 import { addUpdateUserInfoArray, db } from "../user";
@@ -54,11 +54,41 @@ export const getFeed = async () => {
     // const feeds = await Promise.all(lists.items.map((ref) => getDownloadURL(ref)));
     const feedsCollection = await getDocs(collection(db, "feeds"));
     let feeds = [];
-    feedsCollection.forEach(doc => feeds.push(doc.data()))
-    return {data: feeds}
+    feedsCollection.forEach(doc => feeds.push({...doc.data(),uid: doc.id}))
+    return {data: feeds.reverse()}
   } catch (error) {
     // console.log(error)
     return {error: error.message}
   }
 }
 
+
+export const addLike = async (docID,userID) => {
+    try {
+      const docRef = doc(db, "feeds", docID);
+      await updateDoc(docRef, {
+        likes: arrayUnion(userID)
+      });
+      const updatedDoc = await getDoc(docRef);
+      // console.log(updatedDoc);
+      return {data : {...updatedDoc.data(),uid: docID}}
+    } catch (error) {
+      console.log(error)
+      return { error: error.message };
+    }
+}
+
+export const removeLike = async (docID,userID) => {
+  try {
+    const docRef = doc(db, "feeds", docID);
+    await updateDoc(docRef, {
+      likes: arrayRemove(userID)
+    });
+    const updatedDoc = await getDoc(docRef);
+      // console.log(updatedDoc);
+      return {data : {...updatedDoc.data(),uid: docID}}
+  } catch (error) {
+    console.log(error)
+    return { error: error.message };
+  }
+}

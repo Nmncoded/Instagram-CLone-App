@@ -1,4 +1,4 @@
-import {USER_INFO, LOGOUT, GLOBAL_FEED} from "./actionTypes";
+import {USER_INFO, LOGOUT, GLOBAL_FEED, UPDATE_LIKES } from "./actionTypes";
 
 export const updateUserInfo = (data) => {
   return {
@@ -17,5 +17,11 @@ export const updateFeeds = (data) => {
 export const logoutUser = () => {
   return {
     type: LOGOUT
+  }
+}
+export const updateLikes = (data) => {
+  return {
+    type: UPDATE_LIKES,
+    payload : data
   }
 }
