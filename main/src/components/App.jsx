@@ -22,6 +22,7 @@ function App({userInfo}) {
         dispatch(updateUserInfo(user.data))
         setLoading(false);
         setIsLoggedIn(true);
+        
         history.push("/")
       }).catch(() => {
         setLoading(false);

@@ -40,6 +40,7 @@ export const createUser = async (email, username, name, uid) => {
 	}
 };
 
+
 export const getUserInfo = async (uid) => {
 	try {
 		const docRef = doc(db, "users", uid);

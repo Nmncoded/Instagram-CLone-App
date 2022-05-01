@@ -18,7 +18,7 @@ function MainUi(props){
             getFeed().then((feeds) => dispatch(updateFeeds(feeds.data)));
         }
     }, [userInfo]);
-    console.log(feeds);
+    // console.log(feeds);
     if(!feeds) {
         return <Loader />
     }
@@ -38,14 +38,14 @@ function MainUi(props){
                                 <img src='https://png.pngtree.com/png-vector/20211218/ourmid/pngtree-photography-logo-for-photographer-camera-png-image-png-image_4062788.png' alt="" />
                             </div>
                             <p className='flex-column-center-center' >
-                                <span>{userInfo.name}</span>
+                                <span>{feed.name}</span>
                                 <span className='city' >London, United Kingdom</span>
                             </p>
                         </div>
                         <div className='flex-center-center' ><BiDotsHorizontalRounded className='BiDotsHorizontalRounded' /></div>
                     </header>
                     <div className='image' >
-                        <img src={feed} alt="" />
+                        <img src={feed.url} alt="" />
                     </div>
                     <div className='all-icons flex-between-center' >
                         <div className='flex-between-center' >
@@ -65,8 +65,8 @@ function MainUi(props){
                         20,047 likes
                     </div>
                     <div className='name-description' >
-                        <span  className='first' >{userInfo.name}</span>
-                        <span className='second' >The only way to travel 🛩 #TheTrillionaireLife</span>
+                        <span  className='first' >{feed.name}</span>
+                        <span className='second' >{feed.description}</span>
                     </div>
                 </li>
                             

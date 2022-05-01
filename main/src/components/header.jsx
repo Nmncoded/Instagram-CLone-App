@@ -6,7 +6,7 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { TiCompass } from "react-icons/ti";
 import { FiHeart } from "react-icons/fi";
 import { useState } from "react";
-import Dropzone from "./Dropzone";
+// import Dropzone from "./Dropzone";
 import { logout } from "../firebase/user";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../redux/action";
@@ -15,7 +15,7 @@ function Header() {
 	let history = useHistory();
 	const [input, setInput] = useState("");
 	const [isProfileClicked, setIsProfileClicked] = useState(false);
-	const [dropzone, setDropzone] = useState(false);
+	// const [dropzone, setDropzone] = useState(false);
 	const dispatch = useDispatch();
 
 	const logoutHandler = () => {
@@ -47,9 +47,14 @@ function Header() {
 							<div>
 								<RiMessengerLine className="margin-right" />
 							</div>
-							<div className="relative" onMouseLeave={() => setDropzone(false)} >
+							{/* <div className="relative" onMouseLeave={() => setDropzone(false)} >
 								<BiMessageSquareAdd className="margin-right" onClick={() => setDropzone(true)} />
                                 {dropzone && <Dropzone />}
+							</div> */}
+							<div>
+								<Link to='/add-image-description' >
+								<BiMessageSquareAdd className="margin-right" />
+								</Link>
 							</div>
 							<div>
 								<TiCompass className="margin-right" />
